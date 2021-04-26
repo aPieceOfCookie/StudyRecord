@@ -6,7 +6,7 @@ package com.dc.java;
  * @Description: 基础java学习
  * @date: 2021/4/26 10:06
  */
-public class BaseJavaStudyLanguage {
+public class BaseDataJavaStudy {
 
     /**
      * 常见的数据类型及其对应的封装类
@@ -18,6 +18,13 @@ public class BaseJavaStudyLanguage {
         //bool->Boolean
         //double->Double
         //short->Short
-        //byte->Byte
+    }
+
+    /**
+     * byte->Byte
+     * @return
+     */
+    public Byte byteStudy(){
+        return null;
     }
 }
