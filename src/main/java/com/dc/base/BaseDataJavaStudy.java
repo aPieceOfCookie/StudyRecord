@@ -1,4 +1,4 @@
-package com.dc.java;
+package com.dc.base;
 
 /**
  * @author: 一块儿小饼干
@@ -24,7 +24,16 @@ public class BaseDataJavaStudy {
      * byte->Byte
      * @return
      */
-    public Byte byteStudy(){
+    public static Byte byteStudy(){
+        Byte a= (byte) 0;
+        String name="11";
+        Byte b=new Byte(name);
+        System.out.println(b);
+
         return null;
+    }
+
+    public static void main(String[] args) {
+        byteStudy();
     }
 }
