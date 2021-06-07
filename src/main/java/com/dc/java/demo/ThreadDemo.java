@@ -1,6 +1,8 @@
-package com.dc.java.thread;
+package com.dc.java.demo;
 
-public class Demo {
+import com.dc.java.thread.MyThread1;
+
+public class ThreadDemo {
     public static void main(String[] args) {
 
     }

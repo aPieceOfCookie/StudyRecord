@@ -1,6 +1,6 @@
 package com.dc.java.demo;
 
-import com.dc.java.utils.DcHttp;
+import com.dc.java.http.DcHttp;
 
 public class HttpDemo {
     public static void main(String[] args) {

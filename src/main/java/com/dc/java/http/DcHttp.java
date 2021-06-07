@@ -1,4 +1,4 @@
-package com.dc.java.utils;
+package com.dc.java.http;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,6 +38,7 @@ public class DcHttp {
             connection.setDoInput(true);
             connection.setUseCaches(false);
             connection.setRequestProperty("content-type",CONTENT_TYPE);
+            //connection.connect();
             //得到响应码
             int responseCode = connection.getResponseCode();
             System.out.println(responseCode);
