@@ -13,8 +13,12 @@ public class StudentCourse {
     //@ExcelProperty("课程名")
     private String courseName;
     private String credit;
-    private String courseType;	//必修选修
-    private String courseTypeS;//人文社科类/自然科学类
-    private String courseTypeT;//公共课，专业课
-    private String courseTypeF;//基础课，主干课
+    //必修选修
+    private String courseType;
+    //人文社科类/自然科学类
+    private String courseTypeS;
+    //公共课，专业课
+    private String courseTypeT;
+    //基础课，主干课
+    private String courseTypeF;
 }
