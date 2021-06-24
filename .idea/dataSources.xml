@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="dcpritace" uuid="fe259de0-5285-4eef-bf4c-9f9298886888">
+    <data-source source="LOCAL" name="lzpractice" uuid="b1cb3970-3596-4711-8771-b7c85669567c">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/dcpritace</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/lzpractice</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <driver-properties>
+        <property name="serverTimezone" value="UTC" />
+      </driver-properties>
     </data-source>
   </component>
 </project>

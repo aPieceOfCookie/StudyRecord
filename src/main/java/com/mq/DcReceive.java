@@ -15,7 +15,7 @@ public class DcReceive {
     private final static String QUEUE_NAME = "dc_queue";
 
     public static void main(String[] args) throws IOException, TimeoutException {
-        // 创建连接
+       // 创建连接
         ConnectionFactory factory = new ConnectionFactory();
         // 设置MabbitMQ, 主机ip或者主机名
         factory.setHost("127.0.0.1");
