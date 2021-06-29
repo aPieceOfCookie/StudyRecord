@@ -20,5 +20,11 @@ public class DcArrayList {
         List<String> list = new LinkedList<String>();
     }
 
+    public static void setDc(){
+        Set<String> stringSet=new HashSet<String>();
+    }
 
+    public static void hashTableDc(){
+        Hashtable<String,Long> hashtable=new Hashtable<String, Long>();
+    }
 }
