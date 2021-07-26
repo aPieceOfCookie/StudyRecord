@@ -10,6 +10,7 @@ import com.io.DcIOStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class EasyDemo  implements DcEasyExcelBuilder<StudentCourse> {
     public static void main(String[] args) {
@@ -31,6 +32,9 @@ public class EasyDemo  implements DcEasyExcelBuilder<StudentCourse> {
 
     }
 
+    /**
+     * 导出
+     */
     public static void exportInfo(){
         List<String> nameList=new ArrayList<String>();
         List<StudentExport> exportList=new ArrayList<StudentExport>();

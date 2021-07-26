@@ -79,3 +79,38 @@ FROM
         INNER JOIN Employee E2
                    ON E1.ManagerId = E2.Id
                        AND E1.Salary > E2.Salary;
+
+DROP TABLE
+    IF
+    EXISTS Customers;
+CREATE TABLE Customers ( Id INT, NAME VARCHAR ( 255 ) );
+DROP TABLE
+    IF
+    EXISTS Orders;
+CREATE TABLE Orders ( Id INT, CustomerId INT );
+INSERT INTO Customers ( Id, NAME )
+VALUES
+( 1, 'Joe' ),
+( 2, 'Henry' ),
+( 3, 'Sam' ),
+( 4, 'Max' );
+INSERT INTO Orders ( Id, CustomerId )
+VALUES
+( 1, 3 ),
+( 2, 1 );
+select * from customers where id not in (select c1.id
+                                         from customers c1,orders o1 where c1.Id = o1.CustomerId)
+DROP TABLE IF EXISTS Employee;
+CREATE TABLE Employee ( Id INT, NAME VARCHAR ( 255 ), Salary INT, DepartmentId INT );
+DROP TABLE IF EXISTS Department;
+CREATE TABLE Department ( Id INT, NAME VARCHAR ( 255 ) );
+INSERT INTO Employee ( Id, NAME, Salary, DepartmentId )
+VALUES
+( 1, 'Joe', 70000, 1 ),
+( 2, 'Henry', 80000, 2 ),
+( 3, 'Sam', 60000, 2 ),
+( 4, 'Max', 90000, 1 );
+INSERT INTO Department ( Id, NAME )
+VALUES
+( 1, 'IT' ),
+( 2, 'Sales' );
