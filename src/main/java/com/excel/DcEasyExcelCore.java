@@ -20,7 +20,7 @@ public class DcEasyExcelCore<T> extends AnalysisEventListener<T> {
 
     /**
      * 解析每一行
-     * @param model
+     * @param model 实体对象
      * @param analysisContext
      */
     public void invoke(T model, AnalysisContext analysisContext) {
