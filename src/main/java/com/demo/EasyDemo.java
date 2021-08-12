@@ -24,10 +24,12 @@ public class EasyDemo  implements DcEasyExcelBuilder<StudentCourse> {
         System.out.println(course.toString());
     }
 
+    @Override
     public void analysisEveryLine(StudentCourse model) {
         System.out.println(model.toString());
     }
 
+    @Override
     public void analysisAllData(List<StudentCourse> list) {
 
     }
@@ -47,5 +49,6 @@ public class EasyDemo  implements DcEasyExcelBuilder<StudentCourse> {
             nameList.add(str);
         }
         EasyExcel.write("D:\\测试文件.xlsx", StudentExport.class).sheet("测试").doWrite(exportList);
+
     }
 }
