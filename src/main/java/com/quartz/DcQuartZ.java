@@ -12,6 +12,7 @@ import java.util.Date;
 
 public class DcQuartZ implements Job {
 
+    @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         String format = new SimpleDateFormat("yy-MM-dd hh:mm:ss").format(new Date());
         System.out.println("date:"+format);

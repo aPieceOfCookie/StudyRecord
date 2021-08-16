@@ -16,6 +16,8 @@ public class DcArrayList {
         System.out.println(b.hashCode());
     }
 
+
+
     public static void link(){
         List<String> list = new LinkedList<String>();
     }

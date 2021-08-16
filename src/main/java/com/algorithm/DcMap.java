@@ -14,4 +14,12 @@ public class DcMap {
             map.put("22"+i,"你好");
         }
     }
+
+    public static void main(String[] args) {
+        Map<Long,String> map=new HashMap<>();
+        map.put(1L,"1");
+        map.put(2L,"1");
+        map.put(1L,"2");
+        System.out.println(map);
+    }
 }

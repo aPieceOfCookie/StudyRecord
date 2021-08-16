@@ -14,7 +14,6 @@ public class DesignDemo {
     public void sipleFactory(){
         DcSimpleFactory factory=new DcSimpleFactory();
         DcPerson person=factory.getPerson("student");
-        JSONObject
     }
 
 
