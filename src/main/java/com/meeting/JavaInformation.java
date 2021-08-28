@@ -17,6 +17,7 @@ public class JavaInformation {
     public void collInfo(){
         Map<String,String> map=new HashMap<>();
         Map<String,String> lMap=new LinkedHashMap<>();
+
         Collections.synchronizedMap(map);
     }
 
@@ -37,4 +38,6 @@ public class JavaInformation {
         FutureTask<Integer> task = new FutureTask<Integer>(demo);
     }
 
+    public static void main(String[] args) {
+    }
 }
