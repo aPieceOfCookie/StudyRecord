@@ -5,4 +5,17 @@ package com.language;
  */
 public class DcTypeChange {
 
+
+    public void baseChange(){
+
+    }
+
+    public void EntityChange(){
+
+    }
+
+    public static void main(String[] args) {
+
+    }
+
 }

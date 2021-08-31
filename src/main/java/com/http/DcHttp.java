@@ -54,8 +54,6 @@ public class DcHttp {
                 }
                 return resultBuffer.toString();
             }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

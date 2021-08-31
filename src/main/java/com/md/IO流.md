@@ -8,7 +8,8 @@
 
 ## 2，举例
 
-```java
+
+``` java
 /**
 * 读取文件内容
 * @param filePath  路径
@@ -34,7 +35,8 @@ public String  getFileInfo(String filePath){
 }
 ```
 
-```java
+``` java
+
 /**
      * 将数据写到文件
      * @param path  路径
