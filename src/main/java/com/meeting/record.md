@@ -287,4 +287,99 @@
     10，java8特性——lambda表达式
         Lambda 表达式（Lambda expression）是一个匿名函数，基于数学中的λ演算得名，也可称为闭包（Closure）。把函数作为一个方法的参数（函数作为参数传递进方法中）
 ##  异常
+    1,在 Java 中一个异常的产生，主要有如下三种原因：
+        Java 内部错误发生异常，Java 虚拟机产生的异常。
+        编写的程序代码中的错误所产生的异常，例如空指针异常、数组越界异常等。
+        通过 throw 语句手动生成的异常，一般用来告知该方法的调用者一些必要信息。
+![正则表达式](img/error.png)
+![正则表达式](img/error2.png)
     
+    2,Error和Exception的异同
+        Exception 是程序正常运行过程中可以预料到的意外情况，并且应该被开发者捕获，进行相应的处理。Error 是指正常情况下不大可能出现的情况，绝大部分的 Error 都会导致程序处于非正常、不可恢复状态。所以不需要被开发者捕获。
+        常见的 Error 和 Exception：
+            1）运行时异常（RuntimeException）：
+            NullPropagation：空指针异常；
+            ClassCastException：类型强制转换异常
+            IllegalArgumentException：传递非法参数异常
+            IndexOutOfBoundsException：下标越界异常
+            NumberFormatException：数字格式异常
+            
+            2）非运行时异常：
+            ClassNotFoundException：找不到指定 class 的异常
+            IOException：IO 操作异常
+            
+            3）错误（Error）：
+            NoClassDefFoundError：找不到 class 定义异常
+            StackOverflowError：深递归导致栈被耗尽而抛出的异常
+            OutOfMemoryError：内存溢出异常
+    3,异常处理机制
+        异常处理通过 5 个关键字来实现：try、catch、throw、throws 和 finally。try catch 语句用于捕获并处理异常，finally 语句用于在任何情况下（除特殊情况外）都必须执行的代码，throw 语句用于拋出异常，throws 语句用于声明可能会出现的异常。
+```java
+    public  class demo{
+        public static void main(String[] args) {
+            try {
+                //逻辑程序块
+            } catch(ExceptionType1 e) {
+                //处理代码块1
+            } catch (ExceptionType2 e) {
+                //处理代码块2
+                throw(e);    // 再抛出这个"异常"
+            } finally {
+               // 释放资源代码块
+            }
+        }
+        
+    }
+```
+    如果 try 语句块中发生异常，那么一个相应的异常对象就会被拋出，然后 catch 语句就会依据所拋出异常对象的类型进行捕获，并处理。处理之后，程序会跳过 try 语句块中剩余的语句，转到 catch 语句块后面的第一条语句开始执行。
+    4,语句
+        使用 try-catch-finally 语句时需注意以下几点：
+            异常处理语法结构中只有 try 块是必需的，也就是说，如果没有 try 块，则不能有后面的 catch 块和 finally 块；
+            catch 块和 finally 块都是可选的，但 catch 块和 finally 块至少出现其中之一，也可以同时出现；
+            可以有多个 catch 块，捕获父类异常的 catch 块必须位于捕获子类异常的后面；
+            不能只有 try 块，既没有 catch 块，也没有 finally 块；
+            多个 catch 块必须位于 try 块之后，finally 块必须位于所有的 catch 块之后。
+            finally 与 try 语句块匹配的语法格式，此种情况会导致异常丢失，所以不常见。
+        try catch finally 语句块的执行情况可以细分为以下 3 种情况：
+            如果 try 代码块中没有拋出异常，则执行完 try 代码块之后直接执行 finally 代码块，然后执行 try catch finally 语句块之后的语句。
+            如果 try 代码块中拋出异常，并被 catch 子句捕捉，那么在拋出异常的地方终止 try 代码块的执行，转而执行相匹配的 catch 代码块，之后执行 finally 代码块。如果 finally 代码块中没有拋出异常，则继续执行 try catch finally 语句块之后的语句；如果 finally 代码块中拋出异常，则把该异常传递给该方法的调用者。
+            如果 try 代码块中拋出的异常没有被任何 catch 子句捕捉到，那么将直接执行 finally 代码块中的语句，并把该异常传递给该方法的调用者。
+    5,throws声明异常
+        使用 throws 声明抛出异常时有一个限制，是方法重写中的一条规则：子类方法声明抛出的异常类型应该是父类方法声明抛出的异常类型的子类或相同，子类方法声明抛出的异常不允许比父类方法声明抛出的异常多。
+    6,throw 抛出异常
+        与 throws 不同的是，throw 语句用来直接拋出一个异常，后接一个可拋出的异常类对象
+## 集合，泛型和枚举
+    1,集合
+        集合类主要负责保存、盛装其他数据，因此集合类也被称为容器类。
+        Java 集合类型分为 Collection 和 Map，它们是 Java 集合的根接口，这两个接口又包含了一些子接口或实现类。
+![正则表达式](img/collection.png)
+![正则表达式](img/collection1.png)
+![正则表达式](img/collection2.png)
+![正则表达式](img/map.png)
+
+    2,collection
+![正则表达式](img/collection3.png)
+    
+    3,List
+        List 是一个有序、可重复的集合，集合中每个元素都有其对应的顺序索引。List 集合允许使用重复元素，可以通过索引来访问指定位置的集合元素。List 集合默认按元素的添加顺序设置元素的索引，第一个添加到 List 集合中的元素的索引为 0，第二个为 1，依此类推。
+        List 实现了 Collection 接口，它主要有两个常用的实现类：ArrayList 类和 LinkedList 类。
+        ArrayList类实现了可变数组的大小，存储在内的数据称为元素。它还提供了快速基于索引访问元素的方式，对尾部成员的增加和删除支持较好。使用 ArrayList 创建的集合，允许对集合中的元素进行快速的随机访问，不过，向 ArrayList 中插入与删除元素的速度相对较慢。
+![正则表达式](img/list.png)
+
+        当调用 List 的 set(int index, Object element) 方法来改变 List 集合指定索引处的元素时，指定的索引必须是 List 集合的有效索引。例如集合长度为 4，就不能指定替换索引为 4 处的元素，也就是说这个方法不会改变 List 集合的长度。
+    4,set
+        Set 集合类似于一个罐子，程序可以依次把多个对象“丢进”Set 集合，而 Set 集合通常不能记住元素的添加顺序。也就是说 Set 集合中的对象不按特定的方式排序，只是简单地把对象加入集合。Set 集合中不能包含重复的对象，并且最多只允许包含一个 null 元素。
+        Set 实现了 Collection 接口，它主要有两个常用的实现类：HashSet 类和 TreeSet类。
+        hashset
+            HashSet 是 Set 接口的典型实现，大多数时候使用 Set 集合时就是使用这个实现类。HashSet 是按照 Hash 算法来存储集合中的元素。因此具有很好的存取和查找性能。
+            HashSet 具有以下特点：
+                不能保证元素的排列顺序，顺序可能与添加顺序不同，顺序也有可能发生变化。
+                HashSet 不是同步的，如果多个线程同时访问或修改一个 HashSet，则必须通过代码来保证其同步。
+                集合元素值可以是 null。
+        treeset
+        TreeSet 类同时实现了 Set 接口和 SortedSet 接口。SortedSet 接口是 Set 接口的子接口，可以实现对集合进行自然排序，因此使用 TreeSet 类实现的 Set 接口默认情况下是自然排序的，这里的自然排序指的是升序排序。
+        TreeSet 只能对实现了 Comparable 接口的类对象进行排序，因为 Comparable 接口中有一个 compareTo(Object o) 方法用于比较两个对象的大小。例如 a.compareTo(b)，如果 a 和 b 相等，则该方法返回 0；如果 a 大于 b，则该方法返回大于 0 的值；如果 a 小于 b，则该方法返回小于 0 的值。
+![正则表达式](img/set.png)
+![正则表达式](img/set1.png)
+    
+        
