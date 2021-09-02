@@ -111,28 +111,28 @@
     2，随机数
         Random 类提供了丰富的随机数生成方法，可以产生 boolean、int、long、float、byte 数组以及 double 类型的随机数，这是它与 random() 方法最大的不同之处。random() 方法只能产生 double 类型的 0~1 的随机数。
     3,数字格式化
-![正则表达式](img/num1.png)
+![数字格式化](img/num1.png)
 
     4,大数运算
         BigInteger 类是针对整型大数字的处理类，而 BigDecimal 类是针对大小数的处理类。
     5,日期与时间
-![正则表达式](img/date.png)
+![日期](img/date.png)
 
         1,Calendar 类是一个抽象类，它为特定瞬间与 YEAR、MONTH、DAY_OF—MONTH、HOUR 等日历字段之间的转换提供了一些方法，并为操作日历字段（如获得下星期的日期） 提供了一些方法。
-![正则表达式](img/date1.png)
+![日历](img/date1.png)
     
         2,DateFormat 是日期/时间格式化子类的抽象类，它以与语言无关的方式格式化并解析日期或时间。日期/时间格式化子类（如 SimpleDateFormat）允许进行格式化（也就是日期→文本）、解析（文本→日期）和标准化日期。
-![正则表达式](img/date2.png)
+![日期格式](img/date2.png)
 
             SHORT：完全为数字，如 12.5.10 或 5:30pm。
             MEDIUM：较长，如 May 10，2016。
             LONG：更长，如 May 12，2016 或 11:15:32am。
             FULL：是完全指定，如 Tuesday、May 10、2012 AD 或 11:l5:42am CST。
         3,如果使用 DateFormat 类格式化日期/时间并不能满足要求，那么就需要使用 DateFormat 类的子类——SimpleDateFormat。
-![正则表达式](img/date3.png)
+![日期格式](img/date3.png)
 
 ##  Java包装类、装箱和拆箱
-![正则表达式](img/base.png)
+![拆装箱](img/base.png)
     
     1，Object类
         所有类都继承的类包含了基本方法。
@@ -175,7 +175,7 @@
     2,this关键字
         this 关键字是 Java 常用的关键字，可用于任何实例方法内指向当前对象，也可指向对其调用当前方法的对象，或者在需要当前类型对象引用时使用。
     3,访问控制修饰符
-![正则表达式](img/type.png)
+![访问权限](img/type.png)
     
     4,static
         使用 static 修饰符修饰的属性（成员变量）称为静态变量，也可以称为类变量，常量称为静态常量，方法称为静态方法或类方法，它们统称为静态成员，归整个类所有。
@@ -291,8 +291,8 @@
         Java 内部错误发生异常，Java 虚拟机产生的异常。
         编写的程序代码中的错误所产生的异常，例如空指针异常、数组越界异常等。
         通过 throw 语句手动生成的异常，一般用来告知该方法的调用者一些必要信息。
-![正则表达式](img/error.png)
-![正则表达式](img/error2.png)
+![运行时异常](img/error.png)
+![非运行时异常](img/error2.png)
     
     2,Error和Exception的异同
         Exception 是程序正常运行过程中可以预料到的意外情况，并且应该被开发者捕获，进行相应的处理。Error 是指正常情况下不大可能出现的情况，绝大部分的 Error 都会导致程序处于非正常、不可恢复状态。所以不需要被开发者捕获。
@@ -352,19 +352,19 @@
     1,集合
         集合类主要负责保存、盛装其他数据，因此集合类也被称为容器类。
         Java 集合类型分为 Collection 和 Map，它们是 Java 集合的根接口，这两个接口又包含了一些子接口或实现类。
-![正则表达式](img/collection.png)
-![正则表达式](img/collection1.png)
-![正则表达式](img/collection2.png)
-![正则表达式](img/map.png)
+![Collection结构](img/collection.png)
+![集合接口](img/collection1.png)
+![集合实现类](img/collection2.png)
+![map结构](img/map.png)
 
     2,collection
-![正则表达式](img/collection3.png)
+![collection常用方法](img/collection3.png)
     
     3,List
         List 是一个有序、可重复的集合，集合中每个元素都有其对应的顺序索引。List 集合允许使用重复元素，可以通过索引来访问指定位置的集合元素。List 集合默认按元素的添加顺序设置元素的索引，第一个添加到 List 集合中的元素的索引为 0，第二个为 1，依此类推。
         List 实现了 Collection 接口，它主要有两个常用的实现类：ArrayList 类和 LinkedList 类。
         ArrayList类实现了可变数组的大小，存储在内的数据称为元素。它还提供了快速基于索引访问元素的方式，对尾部成员的增加和删除支持较好。使用 ArrayList 创建的集合，允许对集合中的元素进行快速的随机访问，不过，向 ArrayList 中插入与删除元素的速度相对较慢。
-![正则表达式](img/list.png)
+![数组列表](img/list.png)
 
         当调用 List 的 set(int index, Object element) 方法来改变 List 集合指定索引处的元素时，指定的索引必须是 List 集合的有效索引。例如集合长度为 4，就不能指定替换索引为 4 处的元素，也就是说这个方法不会改变 List 集合的长度。
     4,set
@@ -379,7 +379,7 @@
         treeset
         TreeSet 类同时实现了 Set 接口和 SortedSet 接口。SortedSet 接口是 Set 接口的子接口，可以实现对集合进行自然排序，因此使用 TreeSet 类实现的 Set 接口默认情况下是自然排序的，这里的自然排序指的是升序排序。
         TreeSet 只能对实现了 Comparable 接口的类对象进行排序，因为 Comparable 接口中有一个 compareTo(Object o) 方法用于比较两个对象的大小。例如 a.compareTo(b)，如果 a 和 b 相等，则该方法返回 0；如果 a 大于 b，则该方法返回大于 0 的值；如果 a 小于 b，则该方法返回小于 0 的值。
-![正则表达式](img/set.png)
-![正则表达式](img/set1.png)
+![比较](img/set.png)
+![treeset方法](img/set1.png)
     
         
