@@ -381,5 +381,132 @@
         TreeSet 只能对实现了 Comparable 接口的类对象进行排序，因为 Comparable 接口中有一个 compareTo(Object o) 方法用于比较两个对象的大小。例如 a.compareTo(b)，如果 a 和 b 相等，则该方法返回 0；如果 a 大于 b，则该方法返回大于 0 的值；如果 a 小于 b，则该方法返回小于 0 的值。
 ![比较](img/set.png)
 ![treeset方法](img/set1.png)
-    
+
+
+## 枚举
+    1,声明枚举时必须使用 enum 关键字
+    2,EnumMap 和 EnumSet两个方法
+## 反射
+    1,编译期是指把源码交给编译器编译成计算机可以执行的文件的过程。在 Java 中也就是把 Java 代码编成 class 文件的过程。编译期只是做了一些翻译功能，并没有把代码放在内存中运行起来，而只是把代码当成文本进行操作，比如检查错误。
+    2,运行期是把编译后的文件交给计算机执行，直到程序运行结束。所谓运行期就把在磁盘中的代码放到内存中执行起来。
+    3,Java 反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意方法和属性；这种动态获取信息以及动态调用对象方法的功能称为 Java 语言的反射机制。简单来说，反射机制指的是程序在运行时能够获取自身的信息。在 Java 中，只要给定类的名字，就可以通过反射机制来获得类的所有信息。
+    4,在 ORM 中间件的实现中，运用 Java 反射机制可以读取任意一个 JavaBean 的所有属性，或者给这些属性赋值。
+![反射](img/reflect.png)
+![反射方法](img/reflect1.png)
+
+    Java 反射机制的优缺点
+    优点：
+        能够运行时动态获取类的实例，大大提高系统的灵活性和扩展性。
+        与 Java 动态编译相结合，可以实现无比强大的功能。
+        对于 Java 这种先编译再运行的语言，能够让我们很方便的创建灵活的代码，这些代码可以在运行时装配，无需在组件之间进行源代码的链接，更加容易实现面向对象。
+    缺点：
+        反射会消耗一定的系统资源，因此，如果不需要动态地创建一个对象，那么就不需要用反射；
+        反射调用方法时可以忽略权限检查，获取这个类的私有方法和属性，因此可能会破坏类的封装性而导致安全问题。
+
+## 输入输出流
+    1,数据流是 Java 进行 I/O 操作的对象，它按照不同的标准可以分为不同的类别。
+        按照流的方向主要分为输入流和输出流两大类。
+        数据流按照数据单位的不同分为字节流和字符流。
+        按照功能可以划分为节点流和处理流。
+![流](img/stream.png)
+![流](img/stream1.png)
+![流](img/streamMethod.png)
+![流](img/stream2.png)
+![流](img/streamMethod1.png)
+
+    2,编码
+        Java 中常见编码说明如下：
+            ISO8859-1：属于单字节编码，最多只能表示 0~255 的字符范围。
+            GBK/GB2312：中文的国标编码，用来表示汉字，属于双字节编码。GBK 可以表示简体中文和繁体中文，而 GB2312 只能表示简体中文。GBK 兼容 GB2312。
+            Unicode：是一种编码规范，是为解决全球字符通用编码而设计的。UTF-8 和 UTF-16 是这种规范的一种实现，此编码不兼容 ISO8859-1 编码。Java 内部采用此编码。
+            UTF：UTF 编码兼容了 ISO8859-1 编码，同时也可以用来表示所有的语言字符，不过 UTF 编码是不定长编码，每一个字符的长度为 1~6 个字节不等。一般在中文网页中使用此编码，可以节省空间。
+    3,File类
+        File 类提供了如下三种形式构造方法。
+            File(String path)：如果 path 是实际存在的路径，则该 File 对象表示的是目录；如果 path 是文件名，则该 File 对象表示的是文件。
+            File(String path, String name)：path 是路径名，name 是文件名。
+            File(File dir, String name)：dir 是路径对象，name 是文件名。
+![文件](img/fileMethod.png)
+
+    4,字节流
+        1,输入流
+            InputStream 类及其子类的对象表示字节输入流，InputStream 类的常用子类如下。
+                ByteArrayInputStream 类：将字节数组转换为字节输入流，从中读取字节。
+                FileInputStream 类：从文件中读取数据。
+                PipedInputStream 类：连接到一个 PipedOutputStream（管道输出流）。
+                SequenceInputStream 类：将多个字节输入流串联成一个字节输入流。
+                ObjectInputStream 类：将对象反序列化。
+![字节流](img/inputStream.png)
         
+        2,输出流
+            OutputStream 类及其子类的对象表示一个字节输出流。OutputStream 类的常用子类如下。
+                ByteArrayOutputStream 类：向内存缓冲区的字节数组中写数据。
+                FileOutputStream 类：向文件中写数据。
+                PipedOutputStream 类：连接到一个 PipedlntputStream（管道输入流）。
+                ObjectOutputStream 类：将对象序列化。
+![字节流](img/outputStream.png)
+    
+        3,字节数组输入流
+            ByteArrayInputStream 类可以从内存的字节数组中读取数据，该类有如下两种构造方法重载形式。
+                ByteArrayInputStream(byte[] buf)：创建一个字节数组输入流，字节数组类型的数据源由参数 buf 指定。
+                ByteArrayInputStream(byte[] buf,int offse,int length)：创建一个字节数组输入流，其中，参数 buf 指定字节数组类型的数据源，offset 指定在数组中开始读取数据的起始下标位置，length 指定读取的元素个数。
+        4，字节数组输出流
+            ByteArrayOutputStream 类可以向内存的字节数组中写入数据，该类的构造方法有如下两种重载形式。
+                ByteArrayOutputStream()：创建一个字节数组输出流，输出流缓冲区的初始容量大小为 32 字节。
+                ByteArrayOutputStream(int size)：创建一个字节数组输出流，输出流缓冲区的初始容量大小由参数 size 指定。
+                ByteArrayOutputStream 类中除了有前面介绍的字节输出流中的常用方法以外，还有如下两个方法。
+                intsize()：返回缓冲区中的当前字节数。
+                byte[] toByteArray()：以字节数组的形式返回输出流中的当前内容。
+        5，文件输入流
+            在创建 FileInputStream 类的对象时，如果找不到指定的文件将拋出 FileNotFoundException 异常，该异常必须捕获或声明拋出。
+            FileInputStream 常用的构造方法主要有如下两种重载形式。
+                FileInputStream(File file)：通过打开一个到实际文件的连接来创建一个 FileInputStream，该文件通过文件系统中的 File 对象 file 指定。
+                FileInputStream(String name)：通过打开一个到实际文件的链接来创建一个 FileInputStream，该文件通过文件系统中的路径名 name 指定。
+        6，文件输出流
+            FileOutputStream 类继承自 OutputStream 类，重写和实现了父类中的所有方法。FileOutputStream 类的对象表示一个文件字节输出流，可以向流中写入一个字节或一批字节。在创建 FileOutputStream 类的对象时，如果指定的文件不存在，则创建一个新文件；如果文件已存在，则清除原文件的内容重新写入
+            FileOutputStream 类的构造方法主要有如下 4 种重载形式。
+                FileOutputStream(File file)：创建一个文件输出流，参数 file 指定目标文件。
+                FileOutputStream(File file,boolean append)：创建一个文件输出流，参数 file 指定目标文件，append 指定是否将数据添加到目标文件的内容末尾，如果为 true，则在末尾添加；如果为 false，则覆盖原有内容；其默认值为 false。
+                FileOutputStream(String name)：创建一个文件输出流，参数 name 指定目标文件的文件路径信息。
+                FileOutputStream(String name,boolean append)：创建一个文件输出流，参数 name 和 append 的含义同上。
+    5,字符流
+        1，字符输入流
+            Reader 类是所有字符流输入类的父类，该类定义了许多方法，这些方法对所有子类都是有效的。
+            Reader 类的常用子类如下。
+                CharArrayReader 类：将字符数组转换为字符输入流，从中读取字符。
+                StringReader 类：将字符串转换为字符输入流，从中读取字符。
+                BufferedReader 类：为其他字符输入流提供读缓冲区。
+                PipedReader 类：连接到一个 PipedWriter。
+                InputStreamReader 类：将字节输入流转换为字符输入流，可以指定字符编码。
+![字符流](img/reader.png)
+
+        2,字符输出流
+            与 Reader 类相反，Writer 类是所有字符输出流的父类，该类中有许多方法，这些方法对继承该类的所有子类都是有效的。
+            Writer 类的常用子类如下。
+                CharArrayWriter 类：向内存缓冲区的字符数组写数据。
+                StringWriter 类：向内存缓冲区的字符串（StringBuffer）写数据。
+                BufferedWriter 类：为其他字符输出流提供写缓冲区。
+                PipedWriter 类：连接到一个 PipedReader。
+                OutputStreamReader 类：将字节输出流转换为字符输出流，可以指定字符编码。
+![字符流](img/writer.png)
+
+        3,字符文件输入流
+            为了读取方便，Java 提供了用来读取字符文件的便捷类——FileReader。该类的构造方法有如下两种重载形式。
+                FileReader(File file)：在给定要读取数据的文件的情况下创建一个新的 FileReader 对象。其中，file 表示要从中读取数据的文件。
+                FileReader(String fileName)：在给定从中读取数据的文件名的情况下创建一个新 FileReader 对象。其中，fileName 表示要从中读取数据的文件的名称，表示的是一个文件的完整路径。
+        4,字符文件输出流
+            Java 提供了写入字符文件的便捷类——FileWriter，该类的构造方法有如下 4 种重载形式。
+                FileWriter(File file)：在指定 File 对象的情况下构造一个 FileWriter 对象。其中，file 表示要写入数据的 File 对象。
+                FileWriter(File file,boolean append)：在指定 File 对象的情况下构造一个 FileWriter 对象，如果 append 的值为 true，则将字节写入文件末尾，而不是写入文件开始处。
+                FileWriter(String fileName)：在指定文件名的情况下构造一个 FileWriter 对象。其中，fileName 表示要写入字符的文件名，表示的是完整路径。
+                FileWriter(String fileName,boolean append)：在指定文件名以及要写入文件的位置的情况下构造 FileWriter 对象。其中，append 是一个 boolean 值，如果为 true，则将数据写入文件末尾，而不是文件开始处。
+        5,字符缓冲区输入流
+            BufferedReader 类主要用于辅助其他字符输入流，它带有缓冲区，可以先将一批数据读到内存缓冲区。接下来的读操作就可以直接从缓冲区中获取数据，而不需要每次都从数据源读取数据并进行字符编码转换，这样就可以提高数据的读取效率。
+            BufferedReader 类的构造方法有如下两种重载形式。
+                BufferedReader(Reader in)：创建一个 BufferedReader 来修饰参数 in 指定的字符输入流。
+                BufferedReader(Reader in,int size)：创建一个 BufferedReader 来修饰参数 in 指定的字符输入流，参数 size 则用于指定缓冲区的大小，单位为字符。
+            除了可以为字符输入流提供缓冲区以外，BufferedReader 还提供了 readLine() 方法，该方法返回包含该行内容的字符串，但该字符串中不包含任何终止符，如果已到达流末尾，则返回 null。readLine() 方法表示每次读取一行文本内容，当遇到换行（\n）、回车（\r）或回车后直接跟着换行标记符即可认为某行已终止。
+        6,字符缓冲区输出流
+            BufferedWriter 类主要用于辅助其他字符输出流，它同样带有缓冲区，可以先将一批数据写入缓冲区，当缓冲区满了以后，再将缓冲区的数据一次性写到字符输出流，其目的是为了提高数据的写效率。
+            BufferedWriter 类的构造方法有如下两种重载形式。
+                BufferedWriter(Writer out)：创建一个 BufferedWriter 来修饰参数 out 指定的字符输出流。
+                BufferedWriter(Writer out,int size)：创建一个 BufferedWriter 来修饰参数 out 指定的字符输出流，参数 size 则用于指定缓冲区的大小，单位为字符。
