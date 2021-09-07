@@ -382,6 +382,78 @@
 ![比较](img/set.png)
 ![treeset方法](img/set1.png)
 
+    5，map
+![map接口](img/mapInterface.png)
+
+        Map 接口主要有两个实现类：HashMap 类和 TreeMap 类。其中，HashMap 类按哈希算法来存取键对象，而 TreeMap 类可以对键对象进行排序。
+        TreeMap 类的使用方法与 HashMap 类相同，唯一不同的是 TreeMap 类可以对键对象进行排序。
+        Map的遍历:
+```java
+    public class demo{
+        //在 for 循环中使用 entries 实现 Map 的遍历
+        public static void main(String[] args) {
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("1", "1");
+            map.put("2", "2");
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                String mapKey = entry.getKey();
+                String mapValue = entry.getValue();
+                System.out.println(mapKey + "：" + mapValue);
+            }
+        }
+        //使用 for-each 循环遍历 key 或者 values，一般适用于只需要 Map 中的 key 或者 value 时使用。性能上比 entrySet 较好。
+        public void demo2(){
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("1", "1");
+            map.put("2", "2");
+            // 打印键集合
+            for (String key : map.keySet()) {
+                System.out.println(key);
+            }
+            // 打印值集合
+            for (String value : map.values()) {
+                System.out.println(value);
+            }
+        }
+        
+        //使用迭代器（Iterator）遍历
+        public void demo3(){
+            Map<String, String> map = new HashMap<String, String>();
+            map.put("1", "1");
+            map.put("2", "2");
+            Iterator<Entry<String, String>> entries = map.entrySet().iterator();
+            while (entries.hasNext()) {
+                Entry<String, String> entry = entries.next();
+                String key = entry.getKey();
+                String value = entry.getValue();
+                System.out.println(key + ":" + value);
+            }
+        }
+        
+        //通过键找值遍历，这种方式的效率比较低，因为本身从键取值是耗时的操作。
+        public void demo4(){
+            for(String key : map.keySet()){
+                String value = map.get(key);
+                System.out.println(key+":"+value);
+            }
+        }
+    }
+```
+    6,Lambda表达式遍历Collection集合
+```java
+    public class CollectionEach {
+        public static void main(String[] args) {
+            // 创建一个集合
+            Collection objs = new HashSet();
+            objs.add("1");
+            objs.add("2");
+            objs.add("3");
+            // 调用forEach()方法遍历集合
+            objs.forEach(obj->{int a = 1;});
+            objs.forEach(obj -> System.out.println("迭代集合元素：" + obj));
+        }
+    }
+```
 
 ## 枚举
     1,声明枚举时必须使用 enum 关键字

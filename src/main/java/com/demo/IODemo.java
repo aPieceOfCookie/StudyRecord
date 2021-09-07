@@ -4,7 +4,8 @@ import com.io.DcIOStream;
 
 public class IODemo {
     public static void main(String[] args) {
-        demo2();
+        System.out.println("https://fj.zhihuilianzhong.com".equals("https://fj.zhihuilianzhong.com"));
+        //demo2();
     }
 
     public static void demo1(){
