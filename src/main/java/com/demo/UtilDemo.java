@@ -1,9 +1,9 @@
 package com.demo;
 
+import com.entity.Student;
 import com.father.Child;
 
-import java.util.Date;
-import java.util.HashSet;
+import java.util.*;
 
 public class UtilDemo {
     public static void main(String[] args) {
@@ -20,7 +20,7 @@ public class UtilDemo {
         System.out.println(a >> 1);
         System.out.println(a >>> 1);
     */
-        long currentTimeMillis = System.currentTimeMillis();
+        /*long currentTimeMillis = System.currentTimeMillis();
         System.out.println(currentTimeMillis);
         int m=1;
         for (int i = 0; i < 1000; i++) {
@@ -52,6 +52,19 @@ public class UtilDemo {
         System.out.println(x);
         long l1 = System.currentTimeMillis();
         System.out.println(l1);
-        System.out.println(l1-timeMillis);
+        System.out.println(l1-timeMillis);*/
+
+
+        /*double a=25f/2;
+        System.out.println(a);*/
+
+        List<Student> studentList=new ArrayList<>();
+        Collections.sort(studentList,(student1,student2)->{
+            if(student1.getId()>student2.getId()){
+                return -1;
+            }
+            return 1;
+        });
+
     }
 }
