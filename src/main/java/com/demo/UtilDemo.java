@@ -58,13 +58,43 @@ public class UtilDemo {
         /*double a=25f/2;
         System.out.println(a);*/
 
-        List<Student> studentList=new ArrayList<>();
+        /*List<Student> studentList=new ArrayList<>();
         Collections.sort(studentList,(student1,student2)->{
             if(student1.getId()>student2.getId()){
                 return -1;
             }
             return 1;
-        });
-
+        });*/
+        System.out.println(2<<4);
+        rev("abc");
+        int [][] arr={{1,2,3},{4,5,6},{7,8,9}};
     }
+
+    public static String rev(String str){
+        char [] strArr=str.toCharArray();
+        String result="";
+        for (int i = strArr.length; i >0 ; i--) {
+            result+=strArr[i-1];
+        }
+        System.out.println(result);
+        return "";
+    }
+
+
+    public static int maxStr(String str,int length){
+        int maxLength=0;
+        return maxLength;
+    }
+
+    public static List<Integer> soutArr(int [][] arr){
+        List<Integer> finalList = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+
+            }
+        }
+        return finalList;
+    }
+
+
 }
