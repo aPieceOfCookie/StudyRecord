@@ -65,9 +65,10 @@ public class UtilDemo {
             }
             return 1;
         });*/
-        System.out.println(2<<4);
-        rev("abc");
-        int [][] arr={{1,2,3},{4,5,6},{7,8,9}};
+       // System.out.println(2<<4);
+       // rev("abc");
+       // int [][] arr={{1,2,3},{4,5,6},{7,8,9}};
+        other();
     }
 
     public static String rev(String str){
@@ -96,5 +97,15 @@ public class UtilDemo {
         return finalList;
     }
 
+    public static void other(){
+        Map<String,Long> dataMap=new HashMap<>();
+        for (int i = 0; i < 10; i++) {
+            dataMap.put("a"+i,2L);
+        }
+        dataMap.forEach((str,item)->{
+            System.out.println(str);
+            System.out.println(item);
+        });
+    }
 
 }
