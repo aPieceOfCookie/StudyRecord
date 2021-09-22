@@ -69,6 +69,7 @@ public class UtilDemo {
        // rev("abc");
        // int [][] arr={{1,2,3},{4,5,6},{7,8,9}};
         other();
+        demo();
     }
 
     public static String rev(String str){
@@ -106,6 +107,16 @@ public class UtilDemo {
             System.out.println(str);
             System.out.println(item);
         });
+    }
+
+    public static void demo(){
+        int a=127;
+        System.out.println(a==127);
+        System.out.println(a>127);
+        System.out.println(a<127);
+        System.out.println(a>=127);
+        System.out.println(a<=127);
+        Integer integer = new Integer(127);
     }
 
 }
