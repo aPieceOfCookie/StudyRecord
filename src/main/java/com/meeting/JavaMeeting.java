@@ -1,5 +1,10 @@
 package com.meeting;
 
+import com.entity.Student;
+
+import javax.management.Query;
+import java.lang.reflect.Constructor;
+
 /**
  * @Author {一块儿小饼干}
  * @ProjectName StudyRecord
@@ -8,5 +13,17 @@ package com.meeting;
  **/
 public class JavaMeeting {
 
+    public void method(){
+        try {
+            Student.class.newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    
 
 }
+
