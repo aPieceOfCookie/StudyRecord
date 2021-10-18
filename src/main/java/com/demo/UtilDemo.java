@@ -1,6 +1,7 @@
 package com.demo;
 
-import org.json.JSONObject;
+import com.entity.Student;
+import com.father.Child;
 
 import java.util.*;
 
@@ -109,22 +110,13 @@ public class UtilDemo {
     }
 
     public static void demo(){
-//        int a=127;
-//        System.out.println(a==127);
-//        System.out.println(a>127);
-//        System.out.println(a<127);
-//        System.out.println(a>=127);
-//        System.out.println(a<=127);
-//        Integer integer = new Integer(127);
-
-        String json="{'msg':'请求成功','code':200,'data':{'originalName':'16339189621192659613222999724187.jpg','sizeFormat':'621.0 bytes','size':621,'filePath':'headPic/202110/12965128-62c4-4124-8fa1-cdb74bbe515c.jpg'}}";
-        JSONObject jsonObject = new JSONObject(json);
-        Integer code = (Integer) jsonObject.get("code");
-        System.out.println(code);
-        JSONObject data=(JSONObject) jsonObject.get("data");
-        System.out.println(data);
-        String filePath = (String) data.get("filePath");
-        System.out.println(filePath);
+        int a=127;
+        System.out.println(a==127);
+        System.out.println(a>127);
+        System.out.println(a<127);
+        System.out.println(a>=127);
+        System.out.println(a<=127);
+        Integer integer = new Integer(127);
     }
 
 }

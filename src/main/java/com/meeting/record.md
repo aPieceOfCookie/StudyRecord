@@ -652,3 +652,4 @@
       - 如果在 <bean> 中指定了该 Bean 的作用域为 singleton，则将该 Bean 放入 Spring IoC 的缓存池中，触发 Spring 对该 Bean 的生命周期管理；如果在 <bean> 中指定了该 Bean 的作用域为 prototype，则将该 Bean 交给调用者，调用者管理该 Bean 的生命周期，Spring 不再管理该 Bean。
       - 如果 Bean 实现了 DisposableBean 接口，则 Spring 会调用 destory() 方法销毁 Bean；如果在配置文件中通过 destory-method 属性指定了 Bean 的销毁方法，则 Spring 将调用该方法对 Bean 进行销毁。
       - Spring 为 Bean 提供了细致全面的生命周期过程，实现特定的接口或设置 <bean> 的属性都可以对 Bean 的生命周期过程产生影响。建议不要过多的使用 Bean 实现接口，因为这样会导致代码的耦合性过高。
+
