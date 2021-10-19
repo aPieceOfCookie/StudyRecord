@@ -1,116 +1,15 @@
-select name,population,area from description where area > 3000000 or population > 25000000;
-DROP TABLE
-    IF
-    EXISTS salary;
-CREATE TABLE salary ( id INT, NAME VARCHAR ( 100 ), sex CHAR ( 1 ), salary INT );
-INSERT INTO salary ( id, NAME, sex, salary )
-VALUES
-( '1', 'A', 'm', '2500' ),
-( '2', 'B', 'f', '1500' ),
-( '3', 'C', 'm', '5500' ),
-( '4', 'D', 'f', '500' );
-update salary
-set
-    sex = CHAR(ASCII(sex)^ASCII('m')^ASCII('f'))
-select *
-from salary;
-DROP TABLE
-    IF
-    EXISTS cinema;
-CREATE TABLE cinema ( id INT, movie VARCHAR ( 255 ), description VARCHAR ( 255 ), rating FLOAT ( 2, 1 ) );
-INSERT INTO cinema ( id, movie, description, rating )
-VALUES
-( 1, 'War', 'great 3D', 8.9 ),
-( 2, 'Science', 'fiction', 8.5 ),
-( 3, 'irish', 'boring', 6.2 ),
-( 4, 'Ice song', 'Fantacy', 8.6 ),
-( 5, 'House card', 'Interesting', 9.1 );
-select * from cinema
-where id%2!=0 and description != 'boring' order by rating desc
-
-DROP TABLE
-    IF
-    EXISTS courses;
-CREATE TABLE courses ( student VARCHAR ( 255 ), class VARCHAR ( 255 ) );
-INSERT INTO courses ( student, class )
-VALUES
-( 'A', 'Math' ),
-( 'B', 'English' ),
-( 'C', 'Math' ),
-( 'D', 'Biology' ),
-( 'E', 'Math' ),
-( 'F', 'Computer' ),
-( 'G', 'Math' ),
-( 'H', 'Math' ),
-( 'I', 'Math' );
-delete p1
-from person p1 , person p2
-where
-    p1.Id>p2.Id and p1.Email=p2.Email
-;
-DROP TABLE
-    IF
-    EXISTS Person;
-CREATE TABLE Person ( PersonId INT, FirstName VARCHAR ( 255 ), LastName VARCHAR ( 255 ) );
-DROP TABLE
-    IF
-    EXISTS Address;
-CREATE TABLE Address ( AddressId INT, PersonId INT, City VARCHAR ( 255 ), State VARCHAR ( 255 ) );
-INSERT INTO Person ( PersonId, LastName, FirstName )
-VALUES
-( 1, 'Wang', 'Allen' );
-INSERT INTO Address ( AddressId, PersonId, City, State )
-VALUES
-( 1, 2, 'New York City', 'New York' );
-DROP TABLE
-    IF
-    EXISTS Employee;
-CREATE TABLE Employee ( Id INT, NAME VARCHAR ( 255 ), Salary INT, ManagerId INT );
-INSERT INTO Employee ( Id, NAME, Salary, ManagerId )
-VALUES
-( 1, 'Joe', 70000, 3 ),
-( 2, 'Henry', 80000, 4 ),
-( 3, 'Sam', 60000, NULL ),
-( 4, 'Max', 90000, NULL );
-SELECT
-    E1.NAME AS Employee
-FROM
-    Employee E1
-        INNER JOIN Employee E2
-                   ON E1.ManagerId = E2.Id
-                       AND E1.Salary > E2.Salary;
-
-DROP TABLE
-    IF
-    EXISTS Customers;
-CREATE TABLE Customers ( Id INT, NAME VARCHAR ( 255 ) );
-DROP TABLE
-    IF
-    EXISTS Orders;
-CREATE TABLE Orders ( Id INT, CustomerId INT );
-INSERT INTO Customers ( Id, NAME )
-VALUES
-( 1, 'Joe' ),
-( 2, 'Henry' ),
-( 3, 'Sam' ),
-( 4, 'Max' );
-INSERT INTO Orders ( Id, CustomerId )
-VALUES
-( 1, 3 ),
-( 2, 1 );
-select * from customers where id not in (select c1.id
-                                         from customers c1,orders o1 where c1.Id = o1.CustomerId)
-DROP TABLE IF EXISTS Employee;
-CREATE TABLE Employee ( Id INT, NAME VARCHAR ( 255 ), Salary INT, DepartmentId INT );
-DROP TABLE IF EXISTS Department;
-CREATE TABLE Department ( Id INT, NAME VARCHAR ( 255 ) );
-INSERT INTO Employee ( Id, NAME, Salary, DepartmentId )
-VALUES
-( 1, 'Joe', 70000, 1 ),
-( 2, 'Henry', 80000, 2 ),
-( 3, 'Sam', 60000, 2 ),
-( 4, 'Max', 90000, 1 );
-INSERT INTO Department ( Id, NAME )
-VALUES
-( 1, 'IT' ),
-( 2, 'Sales' );
+#update salary set sex = char(ASCII(sex)^(ASCII('f')^ascii('m')))
+#select * from salary
+#select * from cinema where id%2 != 0 and description !='boring' order by rating desc
+#select class from (select count(se.student)  num,se.class from courses se group by class) a where a.num > 5;
+#select count(se.student)  num,se.class from courses se group by class
+# select class from courses group by class having count(distinct student) > 5
+    # select * from person group by Email
+    #delete from person where id in (select Id from person group by Email having count(id) > 1)
+          # select Id from person group by Email having  count(id) > 1
+    # select  firstname, lastname, city, state from person left join address a on person.PersonId = a.PersonId
+    # select e1.name from employee e1, (select * from employee e3 where  e3.ManagerId IS NULL) e2 where e1.ManagerId = e2.Id and e1.Salary > e2.Salary
+    # select e1.NAME from employee e1 inner join employee e2 on e1.ManagerId = e2.Id where e1.Salary> e2.Salary
+    # select c.NAME customers  from customers c left join orders o on c.Id = o.CustomerId where o.Id is null
+    # select e.NAME,d.NAME ,e.Salary from employee e left join department d on e.DepartmentId = d.Id where (e.DepartmentId,e.Salary) in (select DepartmentId,max(salary) from employee group by DepartmentId)
+select Salary SecondHighestSalary from employee order by Salary desc limit 1,1
