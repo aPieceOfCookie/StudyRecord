@@ -6,9 +6,9 @@ import java.util.Collections;
 public class DcSort {
     public static void main(String[] args) {
         int [] mums={9,6,2,4,1,3,5,7,0,8};
-        sort4(mums);
+      //  sort4(mums);
         System.out.println(Arrays.toString(mums));
-        System.out.println(5/2);
+        //System.out.println(5/2);
     }
 
     /**
@@ -34,6 +34,8 @@ public class DcSort {
             half=half/2;
         }
     }
+
+
 
     private static void swap(int [] nums,int i,int j){
         int num=nums[i];

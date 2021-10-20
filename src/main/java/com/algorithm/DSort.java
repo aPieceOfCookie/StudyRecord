@@ -9,6 +9,7 @@ import java.util.Arrays;
  * @Date 2021/10/14 22:55
  **/
 public class DSort   {
+
     public static void main(String[] args) {
         int [] arr={2,3,1,5,4};
         sort2(arr);
@@ -61,6 +62,49 @@ public class DSort   {
         }
     }
 
+    /**
+     * 快速排序
+     * @param nums
+     * @param left
+     * @param right
+     */
+    public static void quickSort(int[] nums,int left,int right){
+        //标记数组的左右边际。
+        int i=left;
+        int j=right;
+        //如果下标左大于右，那么代表数组已经无法再分
+        if(left>=right){
+            return;
+        }
+        //每次都取最左边数为基数。如果取最左边的数为基数，那么就先从最右边开始遍历。取右边取反。
+        int pivot=left;
+        //先从最右边开始比较
+        while (right>left){
+            //如果值大于基数，那么就跳过。right > left防止边界溢出
+            while (nums[right] >= nums[pivot] && right > left){
+                right--;
+            }
+            //从左边计算，如果值小于基数就++
+            while (nums[left] <= nums[pivot] && right > left){
+                left++;
+            }
+            swap(nums,left,right);
+        }
+        //排序完毕后，i和j都指向了基数在的位置，进行换位
+        swap(nums,left,pivot);
+        pivot=right;
+        //左边数组
+        quickSort(nums,i,pivot-1);
+        //右边数组递归
+        quickSort(nums,pivot+1,j);
+    }
+
+    /**
+     * 交换算法
+     * @param nums
+     * @param i
+     * @param j
+     */
     private static void swap(int [] nums,int i,int j){
         int num=nums[i];
         nums[i]=nums[j];
