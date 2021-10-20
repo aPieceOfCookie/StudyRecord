@@ -2,7 +2,7 @@ package com.design.dynamic;
 
 /**
  * 动态代理
- * <a href="https://www.jianshu.com/p/fc285d669bc5“/>
+ * <a href="“/>
  */
 public class DcDynamicProxy extends Bird {
 

@@ -12,4 +12,4 @@
     # select e1.NAME from employee e1 inner join employee e2 on e1.ManagerId = e2.Id where e1.Salary> e2.Salary
     # select c.NAME customers  from customers c left join orders o on c.Id = o.CustomerId where o.Id is null
     # select e.NAME,d.NAME ,e.Salary from employee e left join department d on e.DepartmentId = d.Id where (e.DepartmentId,e.Salary) in (select DepartmentId,max(salary) from employee group by DepartmentId)
-select Salary SecondHighestSalary from employee order by Salary desc limit 1,1
+# select Salary SecondHighestSalary from employee order by Salary desc limit 1,1

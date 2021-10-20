@@ -12,7 +12,7 @@ public class DSort   {
 
     public static void main(String[] args) {
         int [] arr={2,3,1,5,4};
-        sort2(arr);
+        quickSort(arr,0,arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -69,13 +69,13 @@ public class DSort   {
      * @param right
      */
     public static void quickSort(int[] nums,int left,int right){
-        //标记数组的左右边际。
-        int i=left;
-        int j=right;
         //如果下标左大于右，那么代表数组已经无法再分
         if(left>=right){
             return;
         }
+        //标记数组的左右边际。
+        int i=left;
+        int j=right;
         //每次都取最左边数为基数。如果取最左边的数为基数，那么就先从最右边开始遍历。取右边取反。
         int pivot=left;
         //先从最右边开始比较
